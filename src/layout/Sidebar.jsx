@@ -44,6 +44,9 @@ const Sidebar = () => {
     { name: "Users", path: "/users", icon: <FiUsers size={18} /> },
     { name: "Roles", path: "/roles", icon: <FiKey size={18} /> },
     { name: "Subscription", path: "/subscriptions", icon: <FiCreditCard size={18} /> },
+    { name: "Approval Master", path: "/approvals", icon: <FiCreditCard size={18} /> },
+    { name: "Manage Approvals", path: "/manage-approvals", icon: <FiCreditCard size={18} /> },
+    { name: "Escalation", path: "/escalation", icon: <FiCreditCard size={18} /> },
 
     // ===== SECTION =====
     { section: "Master Data & Governance" },

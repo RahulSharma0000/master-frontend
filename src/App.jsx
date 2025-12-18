@@ -85,7 +85,12 @@ import RequireMasterAdmin from "./auth/RequireMasterAdmin";
 // import SetEndpoints from "./pages/integration/SetEndPoints";
 // import MonitorStatus from "./pages/integration/MonitorStatus";
 // import TestConnections from "./pages/integration/TestConnections";
+
 import ApprovalPage from "./pages/approvalMaster/ApprovalPage";
+import AddApproval from "./pages/approvalMaster/AddApproval";
+import EditApproval from "./pages/approvalMaster/EditApproval";
+import { ManageApprovalPage } from "./pages/approvalMaster/ManageApprovalPage";
+import { EscalationPage } from "./pages/approvalMaster/EscalationPage";
 
 
 function App() {
@@ -122,6 +127,10 @@ function App() {
 
 
         <Route path="/approvals" element={<ApprovalPage />} />
+        <Route path="/approvals/add" element={<AddApproval />} />
+        <Route path="/approvals/edit/:id" element={<EditApproval />} />
+        <Route path="/manage-approvals" element={<ManageApprovalPage />} />
+        <Route path="/escalation" element={<EscalationPage />} />
 
        
         <Route path="/organizations/branches/list" element={<BranchList />} />
@@ -187,10 +196,10 @@ function App() {
            <Route path="/master-data/loan-products" element={<LoanProduct />} />
            <Route path="/master-data/interest-setting" element={<InterestSettings />} />
            <Route path="/master-data/document-template" element={<DocumentTemplates />} />
-           {/* <Route path="/master-data/credit-  " element={<CreditScorings />} /> */}
+           {/* <Route path="/master-data/credit-score" element={<CreditScorings />} />
            
 
-           {/* <Route path="/integrations/payment-gateway" element={<IntegrationManagament />} />
+           <Route path="/integrations/payment-gateway" element={<IntegrationManagament />} />
            <Route path="/integrations/credit-bureau" element={<ManageCreditBureau />} />
            <Route path="/integrations/sms-email-api" element={<ManageSmsEmailApi />} />
            <Route path="/integrations/accounting-erp" element={<ManageCrm />} />
