@@ -10,15 +10,15 @@ import {
   FiCreditCard,
   FiUserCheck,
   FiBriefcase,
-  FiLink,
   FiChevronDown,
   FiChevronUp,
   FiLogOut,
   FiBox,
-  FiCheckCircle,
   FiThumbsUp,
   FiLayers,
   FiClipboard,
+  FiRefreshCcw,
+  FiFolder,
 } from "react-icons/fi";
 
 const Sidebar = () => {
@@ -35,20 +35,26 @@ const Sidebar = () => {
     location.pathname.startsWith("/product") ||
       location.pathname.startsWith("/fees") ||
       location.pathname.startsWith("/charges") ||
-      location.pathname.startsWith("/interest")
+      location.pathname.startsWith("/interest") ||
+      location.pathname.startsWith("/repayment") ||
+      location.pathname.startsWith("/penalties") ||
+      location.pathname.startsWith("/moratorium")
   );
 
+  const [openLoanImprovement, setOpenLoanImprovement] = useState(
+    location.pathname.startsWith("/loan-improvement")
+  );
 
   const [openEligibilityAndScore, setEligibilityAndScore] = useState(
     location.pathname.startsWith("/eligibility") ||
-    location.pathname.startsWith("/banking") ||
-    location.pathname.startsWith("/obligation") ||
-    location.pathname.startsWith("/score-card")
+      location.pathname.startsWith("/banking") ||
+      location.pathname.startsWith("/obligation") ||
+      location.pathname.startsWith("/score-card")
   );
 
   const [openTemplateManagement, setTemplateManagement] = useState(
     location.pathname.startsWith("/predefined-template") ||
-    location.pathname.startsWith("/customized-template")
+      location.pathname.startsWith("/customized-template")
   );
 
   /* ---------------- HELPERS ---------------- */
@@ -61,24 +67,32 @@ const Sidebar = () => {
   const isActive = (path) =>
     location.pathname === path || location.pathname.startsWith(path);
 
-  const menuItemStyle = (path) => `
-    flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all
-    ${
+  const menuItemStyle = (path) =>
+    `flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all ${
       isActive(path)
         ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
         : "text-gray-700 hover:bg-gray-100"
-    }
-  `;
+    }`;
 
-  const dropdownParentActive =
+  const productRevenueActive =
     location.pathname.startsWith("/product") ||
     location.pathname.startsWith("/fees") ||
     location.pathname.startsWith("/charges") ||
-    location.pathname.startsWith("/interest");
+    location.pathname.startsWith("/interest") ||
+    location.pathname.startsWith("/repayment") ||
+    location.pathname.startsWith("/penalties") ||
+    location.pathname.startsWith("/moratorium");
+
+  const loanImprovementActive =
+    location.pathname.startsWith("/loan-improvement");
+
+  const [openDocumentManagement, setOpenDocumentManagement] = useState(
+    location.pathname.startsWith("/documents")
+  );
 
   /* ---------------- RENDER ---------------- */
   return (
-    <div className="fixed left-0 top-0 h-screen w-64 bg-white border-r flex flex-col justify-between overflow-y-scroll">
+    <div className="fixed left-0 top-0 h-screen w-64 bg-white border-r flex flex-col justify-between overflow-y-auto">
       {/* TOP */}
       <div>
         {/* TITLE */}
@@ -107,10 +121,7 @@ const Sidebar = () => {
             <FiKey size={18} /> Roles
           </Link>
 
-          <Link
-            to="/subscriptions"
-            className={menuItemStyle("/subscriptions")}
-          >
+          <Link to="/subscriptions" className={menuItemStyle("/subscriptions")}>
             <FiCreditCard size={18} /> Subscription
           </Link>
 
@@ -119,42 +130,34 @@ const Sidebar = () => {
             Master Data & Governance
           </p>
 
-          <Link to="/master-data" className={menuItemStyle("/master-data")}>
-            <FiShield size={18} /> Master Data Config
-          </Link>
+         
 
           {/* APPROVAL MASTER */}
           <button
             onClick={() => setOpenApprovalMaster((p) => !p)}
-            className={`
-              flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all
-              ${
-                openApprovalMaster
-                  ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
-                  : "text-gray-700 hover:bg-gray-100"
-              }
-            `}
+            className={`flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all ${
+              openApprovalMaster
+                ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
+                : "text-gray-700 hover:bg-gray-100"
+            }`}
           >
             <span className="flex items-center gap-3">
-              <FiThumbsUp size={18} />
-              Approval Master
+              <FiThumbsUp size={18} /> Approval Master
             </span>
             {openApprovalMaster ? <FiChevronUp /> : <FiChevronDown />}
           </button>
 
           {openApprovalMaster && (
-            <div className="ml-6 mt-1 space-y-1">
+            <div className="ml-6 space-y-1">
               <Link to="/approvals" className={menuItemStyle("/approvals")}>
                 Approvals
               </Link>
-
               <Link
                 to="/manage-approvals"
                 className={menuItemStyle("/manage-approvals")}
               >
                 Manage Approvals
               </Link>
-
               <Link to="/escalation" className={menuItemStyle("/escalation")}>
                 Escalation
               </Link>
@@ -164,129 +167,171 @@ const Sidebar = () => {
           {/* PRODUCT & REVENUE */}
           <button
             onClick={() => setOpenProductRevenue((p) => !p)}
-            className={`
-              flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all
-              ${
-                dropdownParentActive
-                  ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
-                  : "text-gray-700 hover:bg-gray-100"
-              }
-            `}
+            className={`flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all ${
+              productRevenueActive
+                ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
+                : "text-gray-700 hover:bg-gray-100"
+            }`}
           >
             <span className="flex items-center gap-3">
-              <FiBox size={18} />
-              Product & Revenue
+              <FiBox size={18} /> Product & Revenue
             </span>
             {openProductRevenue ? <FiChevronUp /> : <FiChevronDown />}
           </button>
 
           {openProductRevenue && (
-            <div className="ml-6 mt-1 space-y-1">
+            <div className="ml-6 space-y-1">
               <Link
                 to="/product-management/list"
                 className={menuItemStyle("/product-management")}
               >
                 Product Management
               </Link>
-
               <Link
                 to="/product-mix/list"
                 className={menuItemStyle("/product-mix")}
               >
                 Product Mix Management
               </Link>
-
               <Link to="/fees/list" className={menuItemStyle("/fees")}>
                 Fees Management
               </Link>
-
               <Link to="/charges/list" className={menuItemStyle("/charges")}>
                 Charges Management
               </Link>
-
               <Link to="/interest/list" className={menuItemStyle("/interest")}>
                 Interest Management
+              </Link>
+              <Link
+                to="/repayment/list"
+                className={menuItemStyle("/repayment")}
+              >
+                Repayment Management
+              </Link>
+              <Link to="/penalties" className={menuItemStyle("/penalties")}>
+                Penalties Management
+              </Link>
+              <Link to="/moratorium" className={menuItemStyle("/moratorium")}>
+                Moratorium Management
               </Link>
             </div>
           )}
 
-          {/* Eligibility & Score Management */}
+          {/* LOAN IMPROVEMENT */}
+          <Link
+            to="/loan-improvement"
+            className={menuItemStyle("/loan-improvement")}
+          >
+            <FiRefreshCcw size={18} /> Loan Improvement
+          </Link>
+
+          {/* ELIGIBILITY & SCORE */}
           <button
             onClick={() => setEligibilityAndScore((p) => !p)}
-            className={`
-              flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all
-              ${
-                openEligibilityAndScore
-                  ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
-                  : "text-gray-700 hover:bg-gray-100"
-              }
-            `}
+            className={`flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all ${
+              openEligibilityAndScore
+                ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
+                : "text-gray-700 hover:bg-gray-100"
+            }`}
           >
             <span className="flex items-center gap-3">
-              <FiClipboard size={18} />
-              Eligibility & Score
+              <FiClipboard size={18} /> Eligibility & Score
             </span>
             {openEligibilityAndScore ? <FiChevronUp /> : <FiChevronDown />}
           </button>
 
           {openEligibilityAndScore && (
-            <div className="ml-6 mt-1 space-y-1">
+            <div className="ml-6 space-y-1">
               <Link to="/eligibility" className={menuItemStyle("/eligibility")}>
                 Eligibility Management
               </Link>
-
-              <Link
-                to="/banking"
-                className={menuItemStyle("/banking")}
-              >
+              <Link to="/banking" className={menuItemStyle("/banking")}>
                 Banking Management
               </Link>
-
               <Link to="/obligation" className={menuItemStyle("/obligation")}>
                 Obligation Management
               </Link>
-
               <Link to="/score-card" className={menuItemStyle("/score-card")}>
                 Score Card Management
               </Link>
             </div>
           )}
 
-          {/* Template Management */}
+          {/* TEMPLATE */}
           <button
             onClick={() => setTemplateManagement((p) => !p)}
-            className={`
-              flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all
-              ${
-                openTemplateManagement
-                  ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
-                  : "text-gray-700 hover:bg-gray-100"
-              }
-            `}
+            className={`flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all ${
+              openTemplateManagement
+                ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
+                : "text-gray-700 hover:bg-gray-100"
+            }`}
           >
             <span className="flex items-center gap-3">
-              <FiClipboard size={18} />
-              Template Management
+              <FiClipboard size={18} /> Template Management
             </span>
             {openTemplateManagement ? <FiChevronUp /> : <FiChevronDown />}
           </button>
 
           {openTemplateManagement && (
-            <div className="ml-6 mt-1 space-y-1">
-              <Link to="/predefine-template" className={menuItemStyle("/predefine-template")}>
+            <div className="ml-6 space-y-1">
+              <Link
+                to="/predefine-template"
+                className={menuItemStyle("/predefine-template")}
+              >
                 Predefine Template
               </Link>
-
               <Link
                 to="/customize-template"
-                className={menuItemStyle("/customize")}
+                className={menuItemStyle("/customize-template")}
               >
                 Customize Template
               </Link>
-
             </div>
           )}
 
+          {/* DOCUMENT MANAGEMENT */}
+          <button
+            onClick={() => setOpenDocumentManagement((p) => !p)}
+            className={`
+    flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all
+    ${
+      location.pathname.startsWith("/documents")
+        ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
+        : "text-gray-700 hover:bg-gray-100"
+    }
+  `}
+          >
+            <span className="flex items-center gap-3">
+              <FiFolder size={18} />
+              Document 
+            </span>
+            {openDocumentManagement ? <FiChevronUp /> : <FiChevronDown />}
+          </button>
+
+          {openDocumentManagement && (
+            <div className="ml-6 mt-1 space-y-1">
+              <Link
+                to="/documents/sanction"
+                className={menuItemStyle("/documents/sanction")}
+              >
+                Sanction Documents
+              </Link>
+
+              <Link
+                to="/documents/loan"
+                className={menuItemStyle("/documents/loan")}
+              >
+                Loan Documents
+              </Link>
+
+              <Link
+                to="/documents/collateral"
+                className={menuItemStyle("/documents/collateral")}
+              >
+                Collateral Documents
+              </Link>
+            </div>
+          )}
 
           <Link to="/audits" className={menuItemStyle("/audits")}>
             <FiShield size={18} /> Audit & Security
@@ -323,8 +368,7 @@ const Sidebar = () => {
           onClick={handleLogout}
           className="flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-red-600 hover:bg-red-50 transition"
         >
-          <FiLogOut size={18} />
-          Logout
+          <FiLogOut size={18} /> Logout
         </button>
       </div>
     </div>
