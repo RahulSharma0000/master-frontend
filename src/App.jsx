@@ -30,7 +30,6 @@ import CreateRole from "./pages/roles/CreateRole";
 import SetPermissions from "./pages/roles/SetPermissions";
 import AssignPermissions from "./pages/roles/AssignPermissions";
 
-
 // import IntegrationManagament from "./pages/integration/IntegrationManagement";
 
 import Notification from "./pages/notifications/Notifications";
@@ -204,6 +203,57 @@ import CollectionAgentForm from "./pages/agent-management/CollectionAgent/Collec
 import LegalAgentForm from "./pages/agent-management/CollectionAgent/LegalAgentForm";
 import UpdateAgent from "./pages/agent-management/CollectionAgent/UpdateAgent";
 import ManageFees from "./pages/agent-management/CollectionAgent/ManageFees";
+import AddRisk from "./pages/risk-Management/risk-master/AddRisk";
+import EditRisk from "./pages/risk-Management/risk-master/EditRisk";
+import ViewRisk from "./pages/risk-Management/risk-master/ViewRisk";
+import MitigationList from "./pages/risk-Management/mitigation/MitigationList";
+import AddMitigation from "./pages/risk-Management/mitigation/AddMitigation";
+import ViewMitigation from "./pages/risk-Management/mitigation/ViewMitigation";
+import EditMitigation from "./pages/risk-Management/mitigation/EditMitigation";
+
+import DeviationList from "./pages/risk-Management/deviation/DeviationList";
+import AddDeviation from "./pages/risk-Management/deviation/AddDeviation";
+import ViewDeviation from "./pages/risk-Management/deviation/ViewDeviation";
+import EditDeviation from "./pages/risk-Management/deviation/EditDeviation";
+
+import RCUList from "./pages/risk-Management/rcu/RCUList";
+import ViewRCU from "./pages/risk-Management/rcu/ViewRCU";
+import EditRCU from "./pages/risk-Management/rcu/EditRCU";
+import AddRCU from "./pages/risk-Management/rcu/AddRCU";
+
+import FraudList from "./pages/risk-Management/fraud/FraudList";
+import AddFraud from "./pages/risk-Management/fraud/AddFraud";
+import ViewFraud from "./pages/risk-Management/fraud/ViewFraud";
+import EditFraud from "./pages/risk-Management/fraud/EditFraud";
+
+import PortfolioLimitList from "./pages/risk-Management/portfolio-limits/PortfolioLimitList";
+import AddPortfolioLimit from "./pages/risk-Management/portfolio-limits/AddPortfolioLimit";
+import EditPortfolioLimit from "./pages/risk-Management/portfolio-limits/EditPortfolioLimit";
+import ViewPortfolioLimit from "./pages/risk-Management/portfolio-limits/ViewPortfolioLimit";
+
+import DefaultLimitList from "./pages/risk-Management/default-limits/DefaultLimitList";
+import AddDefaultLimit from "./pages/risk-Management/default-limits/AddDefaultLimit";
+import EditDefaultLimit from "./pages/risk-Management/default-limits/EditDefaultLimit";
+import ViewDefaultLimit from "./pages/risk-Management/default-limits/ViewDefaultLimit";
+
+import OtherList from "./pages/risk-Management/others/OtherList";
+import AddOther from "./pages/risk-Management/others/AddOther";
+import EditOther from "./pages/risk-Management/others/EditOther";
+import ViewOther from "./pages/risk-Management/others/ViewOther";
+
+import CollectionManagement from "./pages/collection-management/CollectionManagement";
+import PaymentGatewayList from "./pages/collection-management/payment-gateways/PaymentGatewayList";
+import EditPaymentGateway from "./pages/collection-management/payment-gateways/EditPaymentGateway";
+import AddPaymentGateway from "./pages/collection-management/payment-gateways/AddPaymentGateway";
+import CollectionControl from "./pages/collection-management/CollectionControl";
+import MapClientTeam from "./pages/collection-management/MapClientTeam";
+import MapClientAgent from "./pages/collection-management/MapClientAgent";
+import PayoutManagement from "./pages/collection-management/PayoutManagement";
+
+
+
+
+
 
 function App() {
   return (
@@ -360,9 +410,9 @@ function App() {
           element={<ViewOccupationTypePage />}
         />
 
+           
 
-
-        {/* <Route path="/integrations/payment-gateway" element={<IntegrationManagament />} />
+           {/* <Route path="/integrations/payment-gateway" element={<IntegrationManagament />} />
            <Route path="/integrations/credit-bureau" element={<ManageCreditBureau />} />
            <Route path="/integrations/sms-email-api" element={<ManageSmsEmailApi />} />
            <Route path="/integrations/accounting-erp" element={<ManageCrm />} />
@@ -439,7 +489,6 @@ function App() {
           path="/occupation-types/view/:uuid"
           element={<ViewOccupationTypePage />}
         />
-
         <Route path="/document" element={<Notification />} />
         <Route path="/product-management/list" element={<ProductList />} />
         <Route path="/product-management/add" element={<AddProduct />} />
@@ -553,85 +602,12 @@ function App() {
           element={<ViewCollateralDocument />}
         />
 
-        <Route
+         <Route
           path="/risk-management/risks"
           element={<RiskList />}
         />
-
-
-        <Route path="/bank-management" element={<BankManagement />} />
-        <Route path="/bank-management/edit/:id" element={<EditBank />} />
-        <Route path="/fund-management" element={<FundManagement />} />
-        <Route path="/fund-management/add" element={<AddFund />} />
-        <Route path="/fund-management/edit/:id" element={<EditFund />} />
-        <Route path="/fund-management/view/:id" element={<ViewFund />} />
-        <Route path="/fund-management/allocation-rules" element={<FundAllocationRules />} />
-
-
-        <Route path="/portfolio-management" element={<PortfolioManagement />} />
-        <Route path="/portfolio-management/add" element={<AddPortfolio />} />
-        <Route path="/portfolio-management/edit/:id" element={<EditPortfolio />} />
-        <Route path="/portfolio-management/view/:id" element={<ViewPortfolio />} />
-        <Route path="/portfolio-management/bank-matrix" element={<PortfolioBankMatrix />} />
-        <Route path="/portfolio-management/allocation-rules" element={<PortfolioAllocationRules />} />
-
-        <Route path="/mode-of-bank" element={<ModeOfBank />} />
-        <Route path="/mode-of-bank/add" element={<ModeFormPage modeType="add" />} />
-        <Route path="/mode-of-bank/edit/:id" element={<ModeFormPage modeType="edit" />} />
-        <Route path="/mode-of-bank/view/:id" element={<ModeViewPage />} />
-
-        <Route path="/taxation-management" element={<TaxationManagement />} />
-        <Route path="/taxation-management/add" element={<TaxFormPage modeType="add" />} />
-        <Route path="/taxation-management/edit/:id" element={<TaxFormPage modeType="edit" />} />
-        <Route path="/taxation-management/view/:id" element={<TaxViewPage />} />
-
-
-        <Route path="/business-model" element={<BusinessModel />} />
-        <Route path="/business-model/add" element={<BusinessModelFormPage modeType="add" />} />
-        <Route path="/business-model/edit/:id" element={<BusinessModelFormPage modeType="edit" />} />
-        <Route path="/business-model/view/:id" element={<BusinessModelViewPage />} />
-
-        <Route path="/profile-management/vendor" element={<VendorList />} />
-        <Route path="/profile-management/vendor/add" element={<VendorAdd />} />
-        <Route path="/profile-management/vendor/view/:id" element={<VendorView />} />
-        <Route path="/profile-management/vendor/edit/:id" element={<VendorMasterEdit />} />
-
-
-        <Route path="/profile-management/agent" element={<AgentList />} />
-        <Route path="/profile-management/agent/add" element={<AgentAdd />} />
-        <Route path="/profile-management/agent/view/:id" element={<AgentView />} />
-        <Route path="/profile-management/agent/edit/:id" element={<AgentMasterEdit />} />
-
-        <Route path="/profile-management/client" element={<ClientList />} />
-        <Route path="/profile-management/client/add" element={<ClientAdd />} />
-        <Route path="/profile-management/client/view/:id" element={<ClientView />} />
-        <Route path="/profile-management/client/edit/:id" element={<ClientMasterEdit />} />
-
-        <Route path="/channel-partners" element={<ChannelPartnerList />} />
-        <Route path="/channel-partners/view/:id" element={<ChannelPartnerView />} />
-        <Route path="/channel-partners/add" element={<AddEditAgent />} />
-        <Route path="/channel-partners/edit/:id" element={<AddEditAgent />} />
-        <Route path="/channel-partners/payout/:id" element={<UpdatePayout />} />
-        <Route path="/channel-partners/recovery/:id" element={<UpdateRecovery />} />
-        <Route path="/channel-partners/performance/:id" element={<AgentPerformance />} />
-        <Route path="/channel-partners/tenants/:id" element={<ManageTenants />} />
-        <Route path="/channel-partners/offers" element={<PromotionalOffers />} />
-        <Route path="/channel-partners/performance-template" element={<PerformanceTemplate />} />
-
-
-        <Route path="/collection-agent" element={<CollectionAgentList />} />
-        <Route path="/collection-agent/view/:id" element={<CollectionAgentView />} />
-
-        <Route path="/collection-agent/add" element={<CollectionAgentForm />} />
-        <Route path="/collection-agent/edit/:id" element={<CollectionAgentForm />} />
-
-        <Route path="/collection-agent/legal/add" element={<LegalAgentForm />} />
-        <Route path="/collection-agent/legal/edit/:id" element={<LegalAgentForm />} />
-
-        <Route path="/collection-agent/update/:id" element={<UpdateAgent />} />
-        <Route path="/collection-agent/fees/:id" element={<ManageFees />} />
       </Routes>
-
+         
 
     </Router>
   );

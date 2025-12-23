@@ -22,6 +22,7 @@ import {
   FiFileText,
   FiUser,
   FiUserX,
+  FiDollarSign,
 } from "react-icons/fi";
 
 const Sidebar = () => {
@@ -121,6 +122,11 @@ const Sidebar = () => {
   const [openDocumentManagement, setOpenDocumentManagement] = useState(
     location.pathname.startsWith("/documents")
   );
+
+  const [openRiskMitigation, setOpenRiskMitigation] = useState(
+  location.pathname.startsWith("/risk-management")
+);
+
 
   /* ---------------- RENDER ---------------- */
   return (
@@ -498,7 +504,7 @@ const Sidebar = () => {
               </Link>
             </div>
           )}
-          <Link to="/risk-management/risks" className={menuItemStyle("/risk-management/risks")}>
+            <Link to="/risk-management/risks" className={menuItemStyle("/risk-management/risks")}>
             <FiShield size={18} /> Risk Management
           </Link>
 
