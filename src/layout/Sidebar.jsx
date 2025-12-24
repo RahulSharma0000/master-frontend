@@ -23,6 +23,7 @@ import {
   FiUser,
   FiUserX,
   FiDollarSign,
+  FiSettings,
 } from "react-icons/fi";
 
 const Sidebar = () => {
@@ -69,12 +70,15 @@ const Sidebar = () => {
     location.pathname.startsWith("/taxation-management") ||
     location.pathname.startsWith("/business-model")
   );
+
   const [openAgentManagement, setAgentManagement] = useState(
     location.pathname.startsWith("/channel-partners") ||
     location.pathname.startsWith("/verification-agency") ||
     location.pathname.startsWith("/collection-agent") ||
     location.pathname.startsWith("/legal-agent")
   );
+
+
 
   const PROFILE_MANAGEMENT_ROUTES = [
     "/profile-management",
@@ -87,6 +91,25 @@ const Sidebar = () => {
 
   const [openProfileManagement, setProfileManagement] = useState(
     PROFILE_MANAGEMENT_ROUTES.some((route) =>
+      location.pathname.startsWith(route)
+    )
+  );
+
+  const CONTROL_MANAGEMENT_ROUTES = [
+    "/controls/language",
+    "/controls/geo",
+    "/controls/login-auth",
+    "/controls/co-applicant",
+    "/controls/login-fees",
+    "/controls/joint-applicant",
+    "/controls/references",
+    "/controls/application-process",
+    "/controls/score-card",
+    "/controls/verification",
+  ];
+
+  const [openControlManagement, setControlManagement] = useState(
+    CONTROL_MANAGEMENT_ROUTES.some((route) =>
       location.pathname.startsWith(route)
     )
   );
@@ -479,6 +502,97 @@ const [openProvisioning, setOpenProvisioning] = useState(
                 className={menuItemStyle("/legal-agent")}
               >
                 Legal Agent
+              </Link>
+
+            </div>
+          )}
+
+          {/* Controls Management */}
+          <button
+            onClick={() => setControlManagement((p) => !p)}
+            className={`flex items-center justify-between w-full px-3 py-2 rounded-xl text-sm transition-all ${openControlManagement
+                ? "bg-[#E8F1FF] text-[#0A66FF] font-medium"
+                : "text-gray-700 hover:bg-gray-100"
+              }`}
+          >
+            <span className="flex items-center gap-3">
+              <FiSettings size={18} /> Controls Management
+            </span>
+            {openControlManagement ? <FiChevronUp /> : <FiChevronDown />}
+          </button>
+
+          {openControlManagement && (
+            <div className="ml-6 space-y-1">
+              
+              <Link
+                to="/controls/language"
+                className={menuItemStyle("/controls/language")}
+              >
+                Manage Language
+              </Link>
+
+              <Link
+                to="/controls/geo/country"
+                className={menuItemStyle("/controls/geo/country")}
+              >
+                Geo Location
+              </Link>
+
+              <Link
+                to="/controls/login-auth"
+                className={menuItemStyle("/controls/login-auth")}
+              >
+                Login Authentication
+              </Link>
+
+
+              <Link
+                to="/controls/co-applicant"
+                className={menuItemStyle("/controls/co-applicant")}
+              >
+                CoApplicant
+              </Link>
+
+              <Link
+                to="/controls/login-fees"
+                className={menuItemStyle("/controls/login-fees")}
+              >
+                Login Fee
+              </Link>
+
+              <Link
+                to="/controls/joint-applicant"
+                className={menuItemStyle("/controls/joint-applicant")}
+              >
+                Joint Applicant
+              </Link>
+
+              <Link
+                to="/controls/references"
+                className={menuItemStyle("/controls/references")}
+              >
+                References
+              </Link>
+
+              <Link
+                to="/controls/application-process"
+                className={menuItemStyle("/controls/application-process")}
+              >
+                Application Process
+              </Link>
+
+              <Link
+                to="/controls/score-card"
+                className={menuItemStyle("/controls/score-card")}
+              >
+                Score Card Rating
+              </Link>
+
+              <Link
+                to="/controls/verification"
+                className={menuItemStyle("/controls/verification")}
+              >
+                Verification
               </Link>
 
             </div>
