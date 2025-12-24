@@ -251,6 +251,70 @@ import MapClientAgent from "./pages/collection-management/MapClientAgent";
 import PayoutManagement from "./pages/collection-management/PayoutManagement";
 import LegalAgentList from "./pages/agent-management/CollectionAgent/LegalAgentList";
 import LegalAgentView from "./pages/agent-management/CollectionAgent/LegalAgentView";
+import VerificationAgencyList from "./pages/agent-management/VerificationAgency/VerificationAgencyList";
+import VerificationAgencyForm from "./pages/agent-management/VerificationAgency/VerificationAgencyForm";
+import VerificationAgencyView from "./pages/agent-management/VerificationAgency/VerificationAgencyView";
+import ManageVerificationFees from "./pages/agent-management/VerificationAgency/ManageVerificationFees";
+import LanguageList from "./pages/ControlsManagement/ManageLanguage/LanguageList";
+import LanguageAdd from "./pages/ControlsManagement/ManageLanguage/AddLanguage";
+import LanguageEdit from "./pages/ControlsManagement/ManageLanguage/EditLanguage";
+import LanguageView from "./pages/ControlsManagement/ManageLanguage/ViewLanguage";
+import CountryList from "./pages/ControlsManagement/ManageGeoLocation/CountryList";
+import AddCountry from "./pages/ControlsManagement/ManageGeoLocation/AddCountry";
+import EditCountry from "./pages/ControlsManagement/ManageGeoLocation/EditCountry";
+import StateList from "./pages/ControlsManagement/ManageGeoLocation/StateList";
+import AddState from "./pages/ControlsManagement/ManageGeoLocation/AddState";
+import EditState from "./pages/ControlsManagement/ManageGeoLocation/EditState";
+import CityList from "./pages/ControlsManagement/ManageGeoLocation/CityList";
+import AddCity from "./pages/ControlsManagement/ManageGeoLocation/AddCity";
+import EditCity from "./pages/ControlsManagement/ManageGeoLocation/EditCity";
+import AreaList from "./pages/ControlsManagement/ManageGeoLocation/AreaList";
+import AddArea from "./pages/ControlsManagement/ManageGeoLocation/AddArea";
+import EditArea from "./pages/ControlsManagement/ManageGeoLocation/EditArea";
+import LoginAuthList from "./pages/ControlsManagement/ManageLoginAuthentication/LoginAuthList";
+import AddLoginAuth from "./pages/ControlsManagement/ManageLoginAuthentication/AddLoginAuth";
+import EditLoginAuth from "./pages/ControlsManagement/ManageLoginAuthentication/EditLoginAuth";
+import ViewLoginAuth from "./pages/ControlsManagement/ManageLoginAuthentication/ViewLoginAuth";
+import CoApplicantList from "./pages/ControlsManagement/ManageCoApplicant/CoApplicantList";
+import AddCoApplicant from "./pages/ControlsManagement/ManageCoApplicant/AddCoApplicant";
+import EditCoApplicant from "./pages/ControlsManagement/ManageCoApplicant/EditCoApplicant";
+import ViewCoApplicant from "./pages/ControlsManagement/ManageCoApplicant/ViewCoApplicant";
+import LoginFeeList from "./pages/ControlsManagement/ManageLoginFees/LoginFeeList";
+import AddLoginFee from "./pages/ControlsManagement/ManageLoginFees/AddLoginFee";
+import EditLoginFee from "./pages/ControlsManagement/ManageLoginFees/EditLoginFee";
+import ViewLoginFee from "./pages/ControlsManagement/ManageLoginFees/ViewLoginFee";
+import JointApplicantList from "./pages/ControlsManagement/ManageJointApplicant/JointApplicantList";
+import AddJointApplicant from "./pages/ControlsManagement/ManageJointApplicant/AddJointApplicant";
+import EditJointApplicant from "./pages/ControlsManagement/ManageJointApplicant/EditJointApplicant";
+import ViewJointApplicant from "./pages/ControlsManagement/ManageJointApplicant/ViewJointApplicant";
+import ReferenceList from "./pages/ControlsManagement/ManageReferences/ReferenceList";
+import AddReference from "./pages/ControlsManagement/ManageReferences/AddReference";
+import EditReference from "./pages/ControlsManagement/ManageReferences/EditReference";
+import ViewReference from "./pages/ControlsManagement/ManageReferences/ViewReference";
+import ApplicationProcessList from "./pages/ControlsManagement/ManageApplicationProcess/ApplicationProcessList";
+import UpdateProcessingMode from "./pages/ControlsManagement/ManageApplicationProcess/UpdateProcessingMode";
+import UpdateApplication from "./pages/ControlsManagement/ManageApplicationProcess/UpdateApplication";
+import ApplicationSettings from "./pages/ControlsManagement/ManageApplicationProcess/ApplicationSettings";
+import UpdateActionType from "./pages/ControlsManagement/ManageApplicationProcess/UpdateActionType";
+import ReferenceCheckList from "./pages/ControlsManagement/ManageScoreCardRating/ReferenceCheck/ReferenceCheckList";
+import AddReferenceCheck from "./pages/ControlsManagement/ManageScoreCardRating/ReferenceCheck/AddReferenceCheck";
+import EditReferenceCheck from "./pages/ControlsManagement/ManageScoreCardRating/ReferenceCheck/EditReferenceCheck";
+import ScoreCardRatingHome from "./pages/ControlsManagement/ManageScoreCardRating/ScoreCardRatingHome";
+import CreditHistoryList from "./pages/ControlsManagement/ManageScoreCardRating/CreditHistory/CreditHistoryList";
+import AddCreditHistory from "./pages/ControlsManagement/ManageScoreCardRating/CreditHistory/AddCreditHistory";
+import EditCreditHistory from "./pages/ControlsManagement/ManageScoreCardRating/CreditHistory/EditCreditHistory";
+import AddInvestigationReport from "./pages/ControlsManagement/ManageScoreCardRating/InvastigationReport/AddInvestigationReport";
+import EditInvestigationReport from "./pages/ControlsManagement/ManageScoreCardRating/InvastigationReport/EditInvestigationReport";
+import InvestigationReportList from "./pages/ControlsManagement/ManageScoreCardRating/InvastigationReport/InvestigationReportList";
+import TeleVerificationList from "./pages/ControlsManagement/ManageVerification/TeleVerification/TeleVerificationList";
+import MeetingList from "./pages/ControlsManagement/ManageVerification/CreditPersonalMeetings/MeetingList";
+import VerificationHome from "./pages/ControlsManagement/ManageVerification/VerificationHome";
+import AddTeleVerification from "./pages/ControlsManagement/ManageVerification/TeleVerification/AddTeleVerification";
+import EditTeleVerification from "./pages/ControlsManagement/ManageVerification/TeleVerification/EditTeleVerification";
+import ViewTeleVerification from "./pages/ControlsManagement/ManageVerification/TeleVerification/ViewTeleVerification";
+import AddMeeting from "./pages/ControlsManagement/ManageVerification/CreditPersonalMeetings/AddMeeting";
+import EditMeeting from "./pages/ControlsManagement/ManageVerification/CreditPersonalMeetings/EditMeeting";
+import ViewMeeting from "./pages/ControlsManagement/ManageVerification/CreditPersonalMeetings/ViewMeeting";
 
 
 
@@ -630,6 +694,93 @@ function App() {
         <Route path="/legal-agents/edit/:id" element={<LegalAgentForm />} />
         <Route path="/legal-agents/view/:id" element={<LegalAgentView />} />
         <Route path="/legal-agents/add" element={<LegalAgentForm />} />
+
+        <Route path="/verification-agency" element={<VerificationAgencyList />} />
+        <Route path="/verification-agency/edit/:id" element={<VerificationAgencyForm />} />
+        <Route path="/verification-agency/view/:id" element={<VerificationAgencyView />} />
+        <Route path="/verification-agency/add" element={<VerificationAgencyForm />} />
+        <Route path="/verification-agency/manage-fees/:id" element={<ManageVerificationFees />} />
+
+        <Route path="/controls/language" element={<LanguageList />} />
+        <Route path="/controls/language/add" element={<LanguageAdd />} />
+        <Route path="/controls/language/edit/:id" element={<LanguageEdit />} />
+        <Route path="/controls/language/view/:id" element={<LanguageView />} />
+
+        <Route path="/controls/geo/country" element={<CountryList />} />
+        <Route path="/controls/geo/country/add" element={<AddCountry />} />
+        <Route path="/controls/geo/country/edit/:id" element={<EditCountry />} />
+
+        <Route path="/controls/geo/state" element={<StateList />} />
+        <Route path="/controls/geo/state/add" element={<AddState />} />
+        <Route path="/controls/geo/state/edit/:id" element={<EditState />} />
+
+        <Route path="/controls/geo/city" element={<CityList />} />
+        <Route path="/controls/geo/city/add" element={<AddCity />} />
+        <Route path="/controls/geo/city/edit/:id" element={<EditCity />} />
+
+        <Route path="/controls/geo/area" element={<AreaList />} />
+        <Route path="/controls/geo/area/add" element={<AddArea />} />
+        <Route path="/controls/geo/area/edit/:id" element={<EditArea />} />
+
+        <Route path="/controls/login-auth" element={<LoginAuthList />} />
+        <Route path="/controls/login-auth/add" element={<AddLoginAuth />} />
+        <Route path="/controls/login-auth/edit/:id" element={<EditLoginAuth />} />
+        <Route path="/controls/login-auth/view/:id" element={<ViewLoginAuth />} />
+
+        <Route path="/controls/co-applicant" element={<CoApplicantList />} />
+        <Route path="/controls/co-applicant/add" element={<AddCoApplicant />} />
+        <Route path="/controls/co-applicant/edit/:id" element={<EditCoApplicant />} />
+        <Route path="/controls/co-applicant/view/:id" element={<ViewCoApplicant />} />
+
+        <Route path="/controls/login-fees" element={<LoginFeeList />} />
+        <Route path="/controls/login-fees/add" element={<AddLoginFee />} />
+        <Route path="/controls/login-fees/edit/:id" element={<EditLoginFee />} />
+        <Route path="/controls/login-fees/view/:id" element={<ViewLoginFee />} />
+
+        <Route path="/controls/joint-applicant" element={<JointApplicantList />} />
+        <Route path="/controls/joint-applicant/add" element={<AddJointApplicant />} />
+        <Route path="/controls/joint-applicant/edit/:id" element={<EditJointApplicant />} />
+        <Route path="/controls/joint-applicant/view/:id" element={<ViewJointApplicant />} />
+
+        <Route path="/controls/references" element={<ReferenceList />} />
+        <Route path="/controls/references/add" element={<AddReference />} />
+        <Route path="/controls/references/edit/:id" element={<EditReference />} />
+        <Route path="/controls/references/view/:id" element={<ViewReference />} />
+
+        <Route path="/controls/application-process" element={<ApplicationProcessList />} />
+        <Route path="/controls/application-process/processing-mode" element={<UpdateProcessingMode />} />
+        <Route path="/controls/application-process/update-application" element={<UpdateApplication />} />
+        <Route path="/controls/application-process/settings" element={<ApplicationSettings />} />
+        <Route path="/controls/application-process/action-type" element={<UpdateActionType />} />
+
+        <Route
+          path="/controls/score-card"
+          element={<ScoreCardRatingHome />}
+        />
+
+        <Route path="/controls/score-card/reference-check" element={<ReferenceCheckList />}/>
+        <Route path="/controls/score-card/reference-check/add" element={<AddReferenceCheck />}/>
+        <Route path="/controls/score-card/reference-check/edit/:id" element={<EditReferenceCheck />}/>
+
+        <Route path="/controls/score-card/credit-history" element={<CreditHistoryList />} />
+        <Route path="/controls/score-card/credit-history/add" element={<AddCreditHistory />} />
+        <Route path="/controls/score-card/credit-history/edit/:id" element={<EditCreditHistory />} />
+
+        <Route path="/controls/score-card/investigation-report" element={<InvestigationReportList />} />
+        <Route path="/controls/score-card/investigation-report/add" element={<AddInvestigationReport />} />
+        <Route path="/controls/score-card/investigation-report/edit/:id" element={<EditInvestigationReport />} />
+
+        <Route path="/controls/verification" element={<VerificationHome />} />
+
+        <Route path="/controls/verification/tele-verification" element={<TeleVerificationList />} />
+        <Route path="/controls/verification/tele-verification/add" element={<AddTeleVerification />} />
+        <Route path="/controls/verification/tele-verification/edit/:id" element={<EditTeleVerification />} />
+        <Route path="/controls/verification/tele-verification/view/:id" element={<ViewTeleVerification />} />
+
+        <Route path="/controls/verification/credit-personal-meetings" element={<MeetingList />} />
+        <Route path="/controls/verification/credit-personal-meetings/add" element={<AddMeeting />} />
+        <Route path="/controls/verification/credit-personal-meetings/edit/:id" element={<EditMeeting />} />
+        <Route path="/controls/verification/credit-personal-meetings/view/:id" element={<ViewMeeting />} />
 
       </Routes>
 
